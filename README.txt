@@ -1,7 +1,7 @@
-SHREEYA — BIRTHDAY WEBSITE
+Shreeya — birthday website
 
-Open index.html with all folders intact.
-Tap “Open your surprise” at the start to enable the instrumental music on iPhone/Android. It plays until the bear section comes into view, pauses there, and resumes if you scroll up.
-Tap the bear’s envelope for the separate birthday song, which has a silent two-second intro. Closing the note stops that song.
-The photos were trimmed slightly at the top to remove their screenshot icons, and optimised as WebP. Tap photos on phones to reveal them.
-Keep music/ and photos/ folders when publishing. Ensure you have the necessary rights to publish the music and pictures.
+Open index.html with the music/ and photos/ folders beside it.
+Tap the welcome screen to enable background audio on phones. Music pauses at the bear section; tapping the letter plays the second song.
+Photo cards reveal on hover (desktop) or tap (mobile).
+Images are created from the supplied ~430px-wide screenshots with mild corrections and higher-quality export. Higher resolution originals would be required for genuinely more detail.
+Use music/photos only where you have permission to share them.
