@@ -64,3 +64,4 @@ Then visit [http://localhost:8000](http://localhost:8000) in any modern web brow
    - Scroll-triggered SVG walking animation with alternating leg and arm strides.
    - Floating heart particle trail generated on arrival.
    - Tap the envelope seal to open the letter and trigger the secret message modal with an audio-reactive dancing mini-bear.
+
