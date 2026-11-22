@@ -1,11 +1,7 @@
-Shreeya's birthday website — 26 November 2026
+SHREEYA — BIRTHDAY WEBSITE
 
-Open index.html in a browser. No installation required.
-Hover or tap the birthday 26 postcard and the three Good Stuff cards to reveal the included illustrations.
-The white bear walks forward, pushing the letter with both paws; tap the envelope for the secret note.
-All artwork is in the art/ folder. Keep it beside index.html when sharing or hosting.
-Google Fonts require an internet connection; fallback fonts work offline.
-
-MUSIC: Included at music/o-mere-dil-ke-chain.mp3. Tapping the envelope opens the letter; the song begins quietly approximately 2 seconds later and fades in gently. No playback controls are displayed. Closing the letter stops the music. Some mobile/browser privacy settings can still restrict sound.
-
-Mobile: the moon has a brighter gradient and full opacity on narrow screens; desktop styling stays unchanged.
+Open index.html with all folders intact.
+Tap “Open your surprise” at the start to enable the instrumental music on iPhone/Android. It plays until the bear section comes into view, pauses there, and resumes if you scroll up.
+Tap the bear’s envelope for the separate birthday song, which has a silent two-second intro. Closing the note stops that song.
+The photos were trimmed slightly at the top to remove their screenshot icons, and optimised as WebP. Tap photos on phones to reveal them.
+Keep music/ and photos/ folders when publishing. Ensure you have the necessary rights to publish the music and pictures.

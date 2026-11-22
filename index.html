@@ -66,10 +66,44 @@ footer{background:var(--navy);color:#e9dfdd;padding:30px 0;font-size:12px}.foote
 @media(max-width:540px){.bear-track{transform:translateX(-140px)}.bear{width:160px;flex-basis:160px;margin-right:-10px}.envelope{width:152px;height:116px;margin-left:0;margin-bottom:14px}.envelope .click-label{bottom:-34px}.scene-heart{font-size:17px}}
 @media(prefers-reduced-motion:reduce){.bear-track,.scene.arrived .bear-track{transform:none;opacity:1}.scene.arrived .bear,.scene.arrived .bear .leg,.scene.arrived .bear .push-arm{animation:none!important}.scene-heart{display:none}}
 
-</style></head><body>
+
+/* Four real photos — show the full vertical photo without chopping off faces or outfits. */
+.postcard-image,.wish-image{background:#d6c6cc;overflow:hidden}
+.postcard-image img,.wish-image img{position:absolute;inset:0;width:100%;height:100%}
+.postcard-image .photo-back,.wish-image .photo-back{object-fit:cover;filter:blur(22px) brightness(.85);transform:scale(1.17)}
+.postcard-image .photo-main,.wish-image .photo-main{object-fit:contain;object-position:50% 50%;filter:drop-shadow(0 3px 15px #251d2930)}
+.postcard-image .postcard-overlay{bottom:45px;z-index:2;font-size:clamp(14px,2.4vw,21px)}
+.wish-image span{z-index:2}
+@media(max-width:800px){
+ .wish,.wish:nth-child(n){min-height:355px}
+ .postcard{min-height:365px;width:min(360px,96%)}
+ .postcard-image .photo-main,.wish-image .photo-main{object-fit:contain}
+}
+@media(max-width:540px){
+ .wish,.wish:nth-child(n){min-height:360px}
+ .postcard{min-height:345px;transform:rotate(2deg)}
+ .wish-image span{bottom:10px}
+}
+@media(hover:none){
+ .wish:hover .wish-image,.postcard:hover .postcard-image{opacity:0;transform:translateY(12px) scale(1.05)}
+ .wish.is-peeked .wish-image,.postcard.is-peeked .postcard-image{opacity:1;transform:translateY(0) scale(1)}
+ .wish:hover .wish-peek{opacity:1}.wish.is-peeked .wish-peek{opacity:0}
+}
+
+/* One initial gesture unlocks music on iOS and Android. Not a music player. */
+.sound-entry{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:24px;background:rgba(24,32,57,.88);backdrop-filter:blur(14px);transition:opacity .45s,visibility .45s}
+.sound-entry.dismissed{opacity:0;visibility:hidden;pointer-events:none}
+.sound-entry-card{background:#fffaf0;border-radius:20px;max-width:465px;width:100%;padding:clamp(30px,6vw,52px);box-shadow:0 25px 90px #0c12273d;text-align:center;color:#29273b}
+.sound-kicker{color:#a85c78;font-weight:700;letter-spacing:.16em;font-size:10px}
+.sound-entry h2{font:italic 500 clamp(35px,7vw,53px)/1.2 var(--serif);margin:22px 0;color:#6f526a}
+.sound-entry p{font-size:15px;line-height:1.7;margin:0 0 26px;color:#655d6d}
+.sound-entry button{border:0;background:#283c5e;color:#fff9ef;border-radius:100px;padding:16px 24px;font-weight:700;box-shadow:0 5px 20px #283c5e35}
+.sound-entry button:focus-visible{outline:3px solid #bd7695;outline-offset:4px}
+</style></head><body><div class="sound-entry" id="soundEntry" role="dialog" aria-modal="true" aria-labelledby="soundHeading"><div class="sound-entry-card"><span class="sound-kicker">A LITTLE SOMETHING FOR SHREEYA</span><h2 id="soundHeading">Ready for your birthday surprise?</h2><p>There’s music too. Just tap below to begin.</p><button type="button" id="startExperience">Open your surprise <span aria-hidden="true">↗</span></button></div></div>
+
 <header class="hero" id="top"><div class="wrap topbar"><span class="brand">a little something, for you</span><span class="date">26 NOVEMBER 2026</span></div><div class="wrap hero-inner"><div class="hero-copy"><span class="eyebrow hero-intro">FOR SHREEYA · OPEN ON YOUR BIRTHDAY</span><h1>Happy<br><em>Birthday<span class="smallword">.</span></em></h1><p>A normal birthday text felt a bit boring. So I made you a little something instead. Don't ask how long it took.</p><a href="#hello" class="cta">Okay, show me <span aria-hidden="true">↗</span></a></div><div class="hero-art" aria-hidden="true"><div class="moon"></div><div class="orbit"></div><span class="hero-star s1">✦</span><span class="hero-star s2">✧</span><span class="hero-star s3">✦</span><span class="art-ticket">for Shreeya, only</span></div></div><div class="hero-bottom wrap">A VERY SMALL BIRTHDAY MYSTERY &nbsp; · &nbsp; MADE JUST FOR YOU</div></header>
-<main><section class="section intro" id="hello"><div class="wrap intro-layout"><div><span class="eyebrow">01 / THE IMPORTANT PART</span><h2 class="section-head">Today is <em>your</em> day.</h2><p>I hope you get all your favourite things today. Good food, good people, a lot of laughs, and absolutely no unnecessary stress.</p><p>Also, you're allowed to be a little extra today. I won't complain. Much.</p></div><div class="postcard" tabindex="0" role="button" aria-pressed="false" aria-label="Illustrated postcard with number twenty six"><span class="poststamp">SPECIAL<br>DELIVERY</span><span class="big">26</span><span class="postcard-image" aria-hidden="true"><img src="art/birthday-cake.svg" alt="" loading="lazy"><span class="postcard-overlay">a little birthday magic ♡</span></span><span class="hover-hint">hover or tap to peek</span><span class="foot">NOVEMBER · FOR SHREEYA</span></div></div></section>
-<section class="section wishes"><div class="wrap"><span class="eyebrow">02 / A FEW BIRTHDAY RULES</span><h2 class="section-head">Don't forget<br>the <em>good stuff.</em></h2><div class="wishes-grid"><article class="wish" role="button" tabindex="0" aria-pressed="false"><span class="number">01 / THE FOOD</span><div class="wish-image" aria-hidden="true"><img src="art/good-food.svg" alt="" loading="lazy"><span>THE GOOD FOOD</span></div><span class="wish-peek">hover or tap to reveal ↗</span><div><span class="doodle" aria-hidden="true">♡</span><h3>Eat something really good.</h3><p>Whatever you're craving. No boring decisions today.</p></div></article><article class="wish" role="button" tabindex="0" aria-pressed="false"><span class="number">02 / THE MEMORIES</span><div class="wish-image" aria-hidden="true"><img src="art/memories.svg" alt="" loading="lazy"><span>THE MEMORIES</span></div><span class="wish-peek">hover or tap to reveal ↗</span><div><span class="doodle" aria-hidden="true">✳</span><h3>Laugh a little too much.</h3><p>Take the silly photos. Those usually end up being the best ones.</p></div></article><article class="wish" role="button" tabindex="0" aria-pressed="false"><span class="number">03 / THE MOOD</span><div class="wish-image" aria-hidden="true"><img src="art/good-day.svg" alt="" loading="lazy"><span>THE GOOD MOOD</span></div><span class="wish-peek">hover or tap to reveal ↗</span><div><span class="doodle" aria-hidden="true">☼</span><h3>Just enjoy it.</h3><p>The rest of the world can wait a day. It's your birthday.</p></div></article></div></div></section>
+<main><section class="section intro" id="hello"><div class="wrap intro-layout"><div><span class="eyebrow">01 / THE IMPORTANT PART</span><h2 class="section-head">Today is <em>your</em> day.</h2><p>I hope you get all your favourite things today. Good food, good people, a lot of laughs, and absolutely no unnecessary stress.</p><p>Also, you're allowed to be a little extra today. I won't complain. Much.</p></div><div class="postcard" tabindex="0" role="button" aria-pressed="false" aria-label="Birthday postcard; tap to reveal a photo of Shreeya"><span class="poststamp">SPECIAL<br>DELIVERY</span><span class="big">26</span><span class="postcard-image" aria-hidden="true"><img class="photo-back" src="photos/shreeya-1.webp" alt="" loading="lazy" decoding="async"><img class="photo-main" src="photos/shreeya-1.webp" alt="Shreeya birthday photo 1" loading="lazy" decoding="async"><span class="postcard-overlay">birthday girl ♡</span></span><span class="hover-hint">tap to see her photo</span><span class="foot">NOVEMBER · FOR SHREEYA</span></div></div></section>
+<section class="section wishes"><div class="wrap"><span class="eyebrow">02 / A FEW BIRTHDAY RULES</span><h2 class="section-head">Don't forget<br>the <em>good stuff.</em></h2><div class="wishes-grid"><article class="wish" role="button" tabindex="0" aria-pressed="false"><span class="number">01 / THE FOOD</span><div class="wish-image" aria-hidden="true"><img class="photo-back" src="photos/shreeya-2.webp" alt="" loading="lazy" decoding="async"><img class="photo-main" src="photos/shreeya-2.webp" alt="Shreeya birthday photo 2" loading="lazy" decoding="async"><span>JUST SHREEYA</span></div><span class="wish-peek">tap for a photo ↗</span><div><span class="doodle" aria-hidden="true">♡</span><h3>Eat something really good.</h3><p>Whatever you're craving. No boring decisions today.</p></div></article><article class="wish" role="button" tabindex="0" aria-pressed="false"><span class="number">02 / A LITTLE MOMENT</span><div class="wish-image" aria-hidden="true"><img class="photo-back" src="photos/shreeya-3.webp" alt="" loading="lazy" decoding="async"><img class="photo-main" src="photos/shreeya-3.webp" alt="Shreeya birthday photo 3" loading="lazy" decoding="async"><span>A LITTLE MOMENT</span></div><span class="wish-peek">tap for a photo ↗</span><div><span class="doodle" aria-hidden="true">✳</span><h3>Laugh a little too much.</h3><p>Take the silly photos. Those usually end up being the best ones.</p></div></article><article class="wish" role="button" tabindex="0" aria-pressed="false"><span class="number">03 / THE MOOD</span><div class="wish-image" aria-hidden="true"><img class="photo-back" src="photos/shreeya-4.webp" alt="" loading="lazy" decoding="async"><img class="photo-main" src="photos/shreeya-4.webp" alt="Shreeya birthday photo 4" loading="lazy" decoding="async"><span>HER DAY</span></div><span class="wish-peek">tap for a photo ↗</span><div><span class="doodle" aria-hidden="true">☼</span><h3>Just enjoy it.</h3><p>The rest of the world can wait a day. It's your birthday.</p></div></article></div></div></section>
 <section class="section letter-section" id="letter"><div class="wrap letter-layout"><div class="letter-side"><span class="eyebrow">03 / A LITTLE NOTE</span><h2 class="section-head">This one's<br>for <em>you.</em></h2><p class="smallnote">No big speech. Just a birthday wish from me to you.</p></div><article class="letter-paper"><h3>Hey, Kumbh Karan.</h3><p>Happy birthday!! I really hope you have a lovely day, full of good food, good company, and things that genuinely make you happy.</p><p>I know I could've just sent a message, but I wanted to do something a little different. So yes, you have a whole website now. Don't let it go to your head.</p><p>I hope this year brings you plenty of good moments, unexpected laughs, and some really nice surprises.</p><p>Enjoy your day, Shreeya. And don't worry, I'll be back to annoying you tomorrow. :)</p><div class="signature">— Prakash</div></article></div></section>
 <section class="final" id="surprise"><div class="wrap"><div class="final-head"><span class="eyebrow">04 / THERE'S ONE MORE THING</span><h2 class="section-head">Special <em>delivery.</em></h2><p>Someone insisted on bringing you a final little note. Apparently, it's classified.</p></div><div class="scene" id="bearScene"><span class="scene-caption">PLEASE ACCEPT THIS VERY IMPORTANT LETTER</span><span class="heart-note" aria-hidden="true">just for you ♡</span><div class="ground"></div><div class="bear-track"><div class="bear" aria-hidden="true"><svg viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 <!-- Front-facing bear with an unobstructed face and a forward pushing stance. -->
@@ -106,9 +140,31 @@ footer{background:var(--navy);color:#e9dfdd;padding:30px 0;font-size:12px}.foote
 }
 @media(prefers-reduced-motion:reduce){.modal.music-on .mini-bear{animation:none}}
 </style>
+<audio id="backgroundSong" preload="auto" loop playsinline src="music/birthday-background.mp3"></audio>
 <audio id="birthdaySong" preload="auto" playsinline src="music/o-mere-dil-ke-chain.mp3"></audio>
 <script>
-(()=>{const scene=document.getElementById('bearScene'),env=document.getElementById('envelope'),modal=document.getElementById('modal'),closeBtn=document.getElementById('close'),reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,song=document.getElementById('birthdaySong');let lastFocus=null,timer=null;const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){scene.classList.add('arrived');if(!reduced){let n=0;const trail=setInterval(()=>{if(++n>16){clearInterval(trail);return}const b=env.getBoundingClientRect(),r=scene.getBoundingClientRect();const h=document.createElement('span');h.className='scene-heart';h.textContent=n%3===0?'♥':'♡';h.style.left=(b.left-r.left+Math.min(36,b.width*.2)+(n%3)*5)+'px';h.style.top=(b.top-r.top+b.height*(.33+(n%4)*.1))+'px';h.style.setProperty('--size',(15+n%4*4)+'px');scene.appendChild(h);h.addEventListener('animationend',()=>h.remove(),{once:true})},175)}observer.disconnect()}},{threshold:.28});observer.observe(scene);document.querySelectorAll('.postcard,.wish').forEach(card=>{const toggle=()=>{const active=card.classList.toggle('is-peeked');card.setAttribute('aria-pressed',String(active))};card.addEventListener('click',toggle);card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle()}})});// Two seconds of silence and a gentle fade are already part of the MP3.
+(()=>{const scene=document.getElementById('bearScene'),env=document.getElementById('envelope'),modal=document.getElementById('modal'),closeBtn=document.getElementById('close'),reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,song=document.getElementById('birthdaySong'),bg=document.getElementById('backgroundSong'),entry=document.getElementById('soundEntry'),startBtn=document.getElementById('startExperience'),finalSection=document.getElementById('surprise');let lastFocus=null,timer=null,unlocked=false,inFinal=false;
+// The initial tap is essential: autoplaying audible sound on page load is blocked on phones.
+function syncBackground(){
+  const shouldPlay=unlocked&&!inFinal&&!modal.classList.contains('show')&&!env.classList.contains('open')&&!document.hidden;
+  if(shouldPlay){
+    if(bg.paused)bg.play().catch(err=>console.warn('Background audio blocked:',err));
+  }else if(!bg.paused){bg.pause()}
+}
+startBtn.addEventListener('click',()=>{
+  unlocked=true;
+  bg.volume=.32;
+  bg.play().catch(err=>console.warn('Tap-to-play audio blocked:',err));
+  entry.classList.add('dismissed');entry.setAttribute('aria-hidden','true');
+  startBtn.blur();
+});
+const sectionObserver=new IntersectionObserver(entries=>{
+  inFinal=entries[0].isIntersecting;
+  syncBackground();
+},{threshold:0,rootMargin:'0px 0px -15% 0px'});
+sectionObserver.observe(finalSection);
+document.addEventListener('visibilitychange',syncBackground);
+const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){scene.classList.add('arrived');if(!reduced){let n=0;const trail=setInterval(()=>{if(++n>16){clearInterval(trail);return}const b=env.getBoundingClientRect(),r=scene.getBoundingClientRect();const h=document.createElement('span');h.className='scene-heart';h.textContent=n%3===0?'♥':'♡';h.style.left=(b.left-r.left+Math.min(36,b.width*.2)+(n%3)*5)+'px';h.style.top=(b.top-r.top+b.height*(.33+(n%4)*.1))+'px';h.style.setProperty('--size',(15+n%4*4)+'px');scene.appendChild(h);h.addEventListener('animationend',()=>h.remove(),{once:true})},175)}observer.disconnect()}},{threshold:.28});observer.observe(scene);document.querySelectorAll('.postcard,.wish').forEach(card=>{const toggle=()=>{const active=card.classList.toggle('is-peeked');card.setAttribute('aria-pressed',String(active))};card.addEventListener('click',toggle);card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle()}})});// Two seconds of silence and a gentle fade are already part of the MP3.
 // The song contains roughly two seconds of silence before the melody.
 // React to the audio element's actual playback state, rather than a timer.
 function syncLittleBear(){
@@ -130,6 +186,7 @@ function playMusic(){
   }
 }
 function show(){
+  bg.pause();
   lastFocus=document.activeElement;
   playMusic();
   env.classList.add('open');
@@ -139,7 +196,7 @@ function hide(){
   song.pause();try{song.currentTime=0}catch(e){}
   modal.classList.remove('music-on');
   if(timer){clearTimeout(timer);timer=null}
-  env.classList.remove('open');modal.classList.remove('show');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';lastFocus?.focus()
+  env.classList.remove('open');modal.classList.remove('show');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';lastFocus?.focus();syncBackground()
 }
 env.addEventListener('click',show);closeBtn.addEventListener('click',hide);modal.addEventListener('click',e=>{if(e.target===modal)hide()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('show'))hide();if(e.key==='Tab'&&modal.classList.contains('show')){e.preventDefault();closeBtn.focus()}})})();
 </script></body></html>
